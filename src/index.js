@@ -14,16 +14,16 @@ const stars = data.ratings.map((item) => {
 
   a.innerHTML = "&starf;";
   a.id = item.id;
+
   a.addEventListener("click", (e) => {
     const listItems = document.querySelectorAll("li");
 
     for (const item of listItems) {
-      item.classList.remove("active");
-    }
-
-    for (const item of listItems) {
-      if (item.querySelector("a").id <= e.target.id) {
-        item.classList.add("active");
+      const a = item.querySelector("a");
+      if (a.id <= e.target.id) {
+        a.classList.add("active");
+      } else {
+        a.classList.remove("active");
       }
     }
 
