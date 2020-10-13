@@ -17,17 +17,18 @@ const stars = data.ratings.map((item) => {
 
   a.addEventListener("click", (e) => {
     const listItems = document.querySelectorAll("li");
+    const currentId = Number(e.target.id);
 
     for (const item of listItems) {
       const a = item.querySelector("a");
-      if (a.id <= e.target.id) {
+      if (a.id <= currentId) {
         a.classList.add("active");
       } else {
         a.classList.remove("active");
       }
     }
 
-    ratingContainer.innerText = e.target.id;
+    ratingContainer.innerText = currentId;
   });
 
   li.appendChild(a);
